@@ -10,8 +10,8 @@ class WeatherList extends Component{
         const temps = cityData.list.map( weather => weather.main.temp);
         const pressures = cityData.list.map( weather => weather.main.pressure);
         const humidities = cityData.list.map( weather => weather.main.humidity);
-        const height = 120;
-        const width = 120;
+        const height = 250;
+        const width = 250;
         return (
             <tr key={name}>
                 <td>{name}</td>
@@ -30,6 +30,11 @@ class WeatherList extends Component{
 
 
     render(){
+        if(this.props.weather.length<1){
+            return (
+                <div class="no-data">Enter a city in search bar to view it's weather graph....</div>
+            )
+        }
         return (
             <table className="table">
                 <thead>
